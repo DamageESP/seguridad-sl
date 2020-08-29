@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="statusBar" v-if="loading">Cargando...</div>
+    <Generador />
+    <hr>
+    <ListaEmpleados />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Generador from './components/Generador'
+import ListaEmpleados from './components/ListaEmpleados'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Generador,
+    ListaEmpleados,
+  },
+  computed: {
+    ...mapState(['loading'])
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+html, body {
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+
+  .statusBar {
+    width: 100%;
+    background: lightblue;
+    text-align: center;
+    position: sticky;
+    top: 0;
+  }
 }
 </style>
