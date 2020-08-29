@@ -7,7 +7,7 @@
           <span>📷</span>
         </button>
         <img v-if="localProfilePic" :src="localProfilePic" :alt="localName">
-        <img v-else src="/placeholder.png" alt="No image">
+        <img v-else src="placeholder.png" alt="No image">
       </div>
       <div class="fields">
         <div class="inputGroup">
