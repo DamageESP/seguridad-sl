@@ -6,17 +6,17 @@
         <template v-if="empleadosConAcceso.length">
           <Empleado v-for="(empleado, i) in empleadosConAcceso" :key="i" :empleado="empleado" />
         </template>
-        <span v-else>No hay empleados con acceso todavía</span>
+        <span class="noItems" v-else>No hay empleados con acceso todavía</span>
       </div>
     </div>
     <div class="sinAcceso">
       <h3>Sin acceso</h3>
-      <template v-if="empleadosSinAcceso.length">
-        <div class="gridArea">
+      <div class="gridArea">
+        <template v-if="empleadosSinAcceso.length">
           <Empleado v-for="(empleado, i) in empleadosSinAcceso" :key="i" :empleado="empleado" />
-        </div>
-      </template>
-      <span v-else>No hay empleados sin acceso todavía</span>
+        </template>
+        <span class="noItems" v-else>No hay empleados sin acceso todavía</span>
+      </div>
     </div>
   </div>
 </template>
@@ -51,6 +51,12 @@ export default {
 .com-lista-empleados {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 40px;
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   h3 {
     text-align: center;
@@ -64,6 +70,10 @@ export default {
     .gridArea {
       display: grid;
       row-gap: 15px;
+
+      .noItems {
+        text-align: center;
+      }
     }
   }
 }

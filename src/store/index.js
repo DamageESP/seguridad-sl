@@ -34,13 +34,21 @@ export default new Vuex.Store({
   actions: {
     async addEmpleadoToFirebase({ commit }, newEmpleado) {
       commit('setLoading', true)
-      await addUser(newEmpleado)
+      try {
+        await addUser(newEmpleado)
+      } catch(err) {
+        console.error(err)
+      }
       commit('setLoading', false)
       commit('setCurrentEmpleadoId', null)
     },
     async editEmpleadoOnFirebase({ commit }, newEmpleadoData) {
       commit('setLoading', true)
-      await editUser(newEmpleadoData)
+      try {
+        await editUser(newEmpleadoData)
+      } catch(err) {
+        console.error(err)
+      }
       commit('setLoading', false)
       commit('setCurrentEmpleadoId', null)
     },

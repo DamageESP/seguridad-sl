@@ -2,7 +2,6 @@
   <div id="app">
     <div class="statusBar" v-if="loading">Cargando...</div>
     <Generador />
-    <hr>
     <ListaEmpleados />
   </div>
 </template>
@@ -30,7 +29,7 @@ html, body {
   padding: 0;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Source Serif Pro', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
